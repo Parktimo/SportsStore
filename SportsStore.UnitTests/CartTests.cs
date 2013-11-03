@@ -21,7 +21,7 @@ namespace SportsStore.UnitTests
             // Act
             target.AddItem(p1, 1);
             target.AddItem(p2, 1);
-            CartLine[] results = target.lines.ToArray();
+            CartLine[] results = target.Lines.ToArray();
 
             // Assert
             Assert.AreEqual(results.Length, 2);
@@ -43,7 +43,7 @@ namespace SportsStore.UnitTests
             target.AddItem(p1, 1);
             target.AddItem(p2, 1);
             target.AddItem(p1, 10);
-            CartLine[] result = target.lines.OrderBy(c => c.Product.ProductId).ToArray();
+            CartLine[] result = target.Lines.OrderBy(c => c.Product.ProductId).ToArray();
             
             // Assert
             Assert.AreEqual(result.Length, 2);
@@ -72,8 +72,8 @@ namespace SportsStore.UnitTests
             target.RemoveLine(p2);
 
             // Assert
-            Assert.AreEqual(target.lines.Where(c => c.Product == p2).Count(), 0);
-            Assert.AreEqual(target.lines.Count(), 2);
+            Assert.AreEqual(target.Lines.Where(c => c.Product == p2).Count(), 0);
+            Assert.AreEqual(target.Lines.Count(), 2);
         }
 
         [TestMethod]
@@ -114,7 +114,7 @@ namespace SportsStore.UnitTests
             target.Clear();
 
             // Assert
-            Assert.AreEqual(target.lines.Count(), 0);
+            Assert.AreEqual(target.Lines.Count(), 0);
         }
     }
 
